@@ -49,4 +49,20 @@ public class PessoaFisica extends Cliente {
         return pessoafisicaStr;
     }
 
+    public boolean equals(Object obj){
+
+        if(obj instanceof PessoaFisica){
+            PessoaFisica objPF=(PessoaFisica)obj;
+            if(this.cpf.equals(objPF.cpf)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+
+    }
+
 }

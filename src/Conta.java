@@ -2,7 +2,7 @@ public class Conta {
 
     //atributos da classe Conta
     private Cliente dono;
-    private int numero;
+    private String numero;//transformei em string para usar o equals
 
     private double saldo;
     private double limite;
@@ -20,7 +20,8 @@ public class Conta {
     public Conta(){
 
         this.dono=new Cliente();
-        this.numero=(int) (Math.random()*1000);
+        //this.numero=(int) (Math.random()*1000);
+        this.numero="0";
         this.saldo=0;
         this.limite=0;
         this.operacoes= new Operacao[1000];
@@ -32,7 +33,7 @@ public class Conta {
     public Conta(Cliente dono,int numConta){
         this.saldo=0;
         this.limite=0;
-        this.numero=numConta;
+        this.numero="0";
         this.dono=dono;
         this.operacoes=new Operacao[1000];
         numeroOp=0;
@@ -48,11 +49,11 @@ public class Conta {
         dono.setNome(nome);
     }
 
-    public int getNumero(){
+    public String getNumero(){
         return this.numero;
     }
 
-    public void setNumero(int numero){
+    public void setNumero(String numero){
         this.numero=numero;
     }
 
@@ -100,6 +101,22 @@ public class Conta {
                 "Saldo:"+this.saldo+"\n"+
                 "Limite:"+this.limite;
         return contaStr;
+    }
+
+    public boolean equals(Object obj){
+
+        if(obj instanceof Conta){
+            Conta objConta=(Conta)obj;
+            if(this.numero.equals(objConta.numero)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+
     }
 
     /*//metodo - imprimir: imprime dados da conta

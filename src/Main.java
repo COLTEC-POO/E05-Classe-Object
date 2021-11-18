@@ -10,6 +10,13 @@ public class Main {
         Sorvebao.setNumFuncionarios(50);
         Sorvebao.setSetor("Alimenticio");
 
+        PessoaJuridica Poneiloja=new PessoaJuridica();
+        Sorvebao.setNome("Poneiloja");
+        Sorvebao.setEndereco("Rua da Prata,20 - Itabirito");
+        Sorvebao.setCnpj("11.101.102/0001-99");
+        Sorvebao.setNumFuncionarios(12);
+        Sorvebao.setSetor("Alimenticio");
+
        /* //impressão cadastros pessoas juridicas
         System.out.println("***Dados Clientes-Pessoa Juridica:");
         Sorvebao.imprimirClientePJ(Sorvebao);*/
@@ -28,7 +35,7 @@ public class Main {
         PessoaFisica Samuel=new PessoaFisica();
         Samuel.setNome("Samuel");
         Samuel.setEndereco("Rua D,25-Horto");
-        Samuel.setcpf("001.002.003-99");
+        Samuel.setcpf("001.002.003-55");
         Samuel.setidade(37);
         Samuel.setGenero('m');
 
@@ -50,8 +57,10 @@ public class Main {
         //inicialização das Contas
         Conta jonas= new Conta(Jonas,01);
         jonas.setLimite(200);
+        jonas.setNumero("1");
         Conta samuel= new Conta(Samuel,02);
         samuel.setLimite(500);
+        samuel.setNumero("1");
         Conta camila= new Conta(Camila,03);
         camila.setLimite(800);
         Conta sorvebao=new Conta(Sorvebao,55);
@@ -124,5 +133,29 @@ public class Main {
         System.out.println("Resultado da chamada toString para conta de pessoa juridica:");
         System.out.println(sorvebao.toString());
 
+        //testando equals
+        //testando equals Pessoa Juridica -Não está funcionando
+        if(Sorvebao.equals(Poneiloja)){
+            System.out.println("São iguais.");
+        }
+        else{
+            System.out.println("São diferentes!");
+        }
+        //testando equals Pessoa Fisica
+        if(Jonas.equals(Samuel)){
+            System.out.println("São iguais.");
+        }
+        else{
+            System.out.println("São diferentes!");
+        }
+        //testando equals para conta
+        if(jonas.equals(samuel)){
+            System.out.println("São iguais.");
+        }
+        else{
+            System.out.println("São diferentes!");
+        }
+
     }
+
 }

@@ -39,4 +39,38 @@ public class PessoaJuridica extends Cliente{
                 "Setor:"+this.setor;
         return pessoajuridicaStr;
     }
+
+    /*public boolean equals(Object obj){
+
+        if(obj instanceof PessoaJuridica){
+            PessoaJuridica objPJ=(PessoaJuridica) obj;
+            if(this.cnpj.equals(objPJ.cnpj)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+
+    }*/
+
+    public boolean equals(Object obj){
+
+        if(obj instanceof PessoaJuridica){
+            PessoaJuridica objPJ=(PessoaJuridica)obj;
+            if(this.cnpj.equals(objPJ.cnpj)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+
+    }
+
+
 }
