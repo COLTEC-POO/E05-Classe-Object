@@ -22,6 +22,11 @@ public class Account {
         return "Account{" + "id=" + id + ", total=" + total + ", limit=" + limit + ", owner=" + owner + '}';
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return this.id == ((Account) obj).id;
+    }
+
     public boolean withdraw(double amount) {
         if (amount > total || amount <= 0) {
             return false;

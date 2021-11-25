@@ -22,4 +22,9 @@ public class PessoaFisica extends Client {
                 + "\tEndereço" + this.address;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return this.cpf == ((PessoaFisica) obj).cpf;
+    }
+
 }

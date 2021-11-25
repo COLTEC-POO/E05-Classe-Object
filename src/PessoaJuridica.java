@@ -21,4 +21,9 @@ public class PessoaJuridica extends Client {
         return "Name: " + this.name + "\tCnpj: " + this.cnpj + "\tFuncionarios: " + this.numFuncionarios + "\tSetor: "
                 + this.setor + "\tEndereço" + this.address;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this.cnpj == ((PessoaJuridica) obj).cnpj;
+    }
 }
