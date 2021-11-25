@@ -4,4 +4,9 @@ public class OperacaoSaque extends Operacao {
         super('s', valor);
     }
 
+    @Override
+    public String toString() {
+        return "Data: " + this.data + "\tTipo: Saque\tValor: " + this.valor;
+    }
+
 }

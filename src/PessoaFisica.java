@@ -15,4 +15,11 @@ public class PessoaFisica extends Client {
         System.out.println("Name: " + this.name + "\tCpf: " + this.cpf + "\tIdade: " + this.age + "\tSexo: " + this.sex
                 + "\tEndereço" + this.address);
     }
+
+    @Override
+    public String toString() {
+        return "Name: " + this.name + "\tCpf: " + this.cpf + "\tIdade: " + this.age + "\tSexo: " + this.sex
+                + "\tEndereço" + this.address;
+    }
+
 }

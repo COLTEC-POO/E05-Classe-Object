@@ -17,6 +17,11 @@ public class Account {
         Account.count++;
     }
 
+    @Override
+    public String toString() {
+        return "Account{" + "id=" + id + ", total=" + total + ", limit=" + limit + ", owner=" + owner + '}';
+    }
+
     public boolean withdraw(double amount) {
         if (amount > total || amount <= 0) {
             return false;

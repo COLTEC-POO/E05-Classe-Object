@@ -15,4 +15,10 @@ public class PessoaJuridica extends Client {
         System.out.println("Name: " + this.name + "\tCnpj: " + this.cnpj + "\tFuncionarios: " + this.numFuncionarios
                 + "\tSetor: " + this.setor + "\tEndereço" + this.address);
     }
+
+    @Override
+    public String toString() {
+        return "Name: " + this.name + "\tCnpj: " + this.cnpj + "\tFuncionarios: " + this.numFuncionarios + "\tSetor: "
+                + this.setor + "\tEndereço" + this.address;
+    }
 }
