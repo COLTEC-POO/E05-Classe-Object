@@ -10,6 +10,28 @@ public class PessoaFisica extends Cliente{
         this.sexo = sexo;
     }
 
+    public String toString() {
+        String pessoaFStr = "==== Dados da conta ====\nNome...........: " + this.getNome() +
+                "\nCPF............: " + this.cpf + "\nIdade..........: " + this.idade + "\nSexo...........: " + this.sexo +
+                "\nEndereco.......: " + this.getEndereco()+"\n";
+        return pessoaFStr;
+    }
+
+    public boolean equals(Object obj){
+        if(obj instanceof PessoaFisica){
+            PessoaFisica objPf = (PessoaFisica) obj;
+            if(this.cpf.equals(objPf.cpf)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+    }
+
     public int getIdade() {
         return idade;
     }
@@ -32,13 +54,6 @@ public class PessoaFisica extends Cliente{
 
     public void setSexo(char sexo) {
         this.sexo = sexo;
-    }
-
-    public String toString() {
-        String pessoaFStr = "==== Dados da conta ====\nNome...........: " + this.getNome() +
-                "\nCPF............: " + this.cpf + "\nIdade..........: " + this.idade + "\nSexo...........: " + this.sexo +
-                "\nEndereco.......: " + this.getEndereco()+"\n";
-        return pessoaFStr;
     }
 
 }
