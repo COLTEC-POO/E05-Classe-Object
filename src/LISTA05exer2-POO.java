@@ -42,8 +42,8 @@ public class Equals {
 
     public static void main(String[] equalsComparacao) {
 
-        System.out.println(new ClientePF(00000000001)
-                .equals(new ClientePF(00000000002));
+        System.out.println(new ClientePF(0000-1)
+                .equals(new ClientePF(0000-1));
 
     }
 
@@ -77,8 +77,8 @@ public class Equals {
 
     public static void main(String[] equalsComparacao) {
 
-        System.out.println(new ContaJ(00000000001)
-                .equals(new ContaJ(00000000002));
+        System.out.println(new ContaJ(00000000000013)
+                .equals(new ContaJ(00000000000014));
 
     }
 
