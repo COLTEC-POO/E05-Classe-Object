@@ -11,6 +11,28 @@ public class PessoaJuridica extends Cliente {
         this.setor = setor;
     }
 
+    public String toString() {
+        String pessoaJStr = "==== Dados da conta ====\nNome............: " + this.getNome() +
+                "\nCNPJ............: " + this.cnpj + "\nSetor...........: " + this.setor +
+                "\nEndereco........: " + this.getEndereco() + "\nNum Funcionarios: " + this.numFuncionarios + "\n";
+        return pessoaJStr;
+    }
+
+    public boolean equals(Object obj){
+        if(obj instanceof PessoaJuridica){
+            PessoaJuridica objPj = (PessoaJuridica) obj;
+            if(this.cnpj.equals(objPj.cnpj)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+    }
+
     public String getCnpj() {
         return cnpj;
     }
@@ -33,13 +55,6 @@ public class PessoaJuridica extends Cliente {
 
     public void setSetor(String setor) {
         this.setor = setor;
-    }
-
-    public String toString() {
-        String pessoaJStr = "==== Dados da conta ====\nNome............: " + this.getNome() +
-                "\nCNPJ............: " + this.cnpj + "\nSetor...........: " + this.setor +
-                "\nEndereco........: " + this.getEndereco() + "\nNum Funcionarios: " + this.numFuncionarios + "\n";
-        return pessoaJStr;
     }
 
 }
