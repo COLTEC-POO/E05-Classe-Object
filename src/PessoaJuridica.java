@@ -42,4 +42,19 @@ public class PessoaJuridica extends Cliente {
         return pessoaJStr;
     }
 
+    public boolean equals(Object obj){
+        if(obj instanceof PessoaJuridica){
+            PessoaJuridica objPj = (PessoaJuridica) obj;
+            if(this.cnpj.equals(objPj.cnpj)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+    }
+
 }

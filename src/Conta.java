@@ -22,6 +22,40 @@ public class Conta {
         Conta.contadorNumContas++;
     }
 
+    public Cliente getTitular() {
+        return titular;
+    }
+
+    public void setTitular(PessoaFisica titular) {
+        this.titular = titular;
+    }
+
+    public int getNumConta() {
+        return numConta;
+    }
+
+    public void setNumConta(int numConta) {
+        this.numConta = numConta;
+    }
+
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public double getLimite() {
+        return limite;
+    }
+
+    public void setLimite(double limite) {
+        if(limite < 0){
+            this.limite = 0;
+        }
+        else{
+            this.limite = limite;
+        }
+    }
+
     public void imprimirSaldo(){
         System.out.println("==== Conta " +this.numConta + " ====");
         System.out.println("Nome:  "+ this.titular.getNome());
@@ -102,40 +136,6 @@ public class Conta {
         }
         else{
             return false;
-        }
-    }
-
-    public Cliente getTitular() {
-        return titular;
-    }
-
-    public void setTitular(PessoaFisica titular) {
-        this.titular = titular;
-    }
-
-    public int getNumConta() {
-        return numConta;
-    }
-
-    public void setNumConta(int numConta) {
-        this.numConta = numConta;
-    }
-
-
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-
-    public double getLimite() {
-        return limite;
-    }
-
-    public void setLimite(double limite) {
-        if(limite < 0){
-            this.limite = 0;
-        }
-        else{
-            this.limite = limite;
         }
     }
 }
