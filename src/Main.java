@@ -8,28 +8,17 @@ public class Main {
         Conta contaTeste = new Conta(1202, 10000, cliente1);
         Conta contaTeste2 = new Conta(1204, 10000, cliente2);
 
-        contaTeste.imprimirSaldo();
-
         contaTeste.depositar(1200);
         contaTeste.depositar(1500.55);
         contaTeste.sacar(757);
 
-        contaTeste.extrato();
-
-        contaTeste.mediaOperacoes();
-
         System.out.println (contaTeste.getTitular().toString());
-
-        contaTeste2.imprimirSaldo();
 
         contaTeste2.depositar(1200);
         contaTeste2.depositar(1500.55);
         contaTeste2.sacar(757);
 
-        contaTeste2.extrato();
 
-        contaTeste2.mediaOperacoes();
-
-        System.out.println (contaTeste2.getTitular().toString());
+        System.out.println (contaTeste2);
     }
 }
