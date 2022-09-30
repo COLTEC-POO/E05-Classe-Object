@@ -91,6 +91,20 @@ public class Conta {
         return contaStr;
     }
 
+    public boolean equals(Object obj){
+        if(obj instanceof Conta) {
+            Conta objConta = (Conta) obj;
+            if (this.numConta == objConta.numConta) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+    }
+
     public Cliente getTitular() {
         return titular;
     }
