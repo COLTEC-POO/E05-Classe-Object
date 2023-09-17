@@ -138,13 +138,13 @@ public class Conta {
     public void imprimirExtrato() {
         System.out.println("Extrato da conta de " + this.getDono());
         for (int i = 0; i < numOp; i++) {
-            operacoes[i].imprimirExtrato();
+            System.out.println(operacoes[i].toString());
         }
     }
 
     // Imprimir dados de conta
     public String toString() {
-        return "Número da Conta: " + numero + "\nSenha: " + senha + "\nSaldo: R$" + saldo + "\nDono: " + dono + "\nLimite: R$" + limite + "\n === Dados como cliente === \n" + cliente.toString();
+        return "Número da Conta: " + numero + "\nSenha: " + senha + "\nSaldo: R$" + saldo + "\nDono: " + dono + "\nLimite: R$" + limite + "\n \n=== Dados como cliente === \n" + cliente.toString();
     }
 
     public String getDono() { return dono; }

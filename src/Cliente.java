@@ -32,7 +32,7 @@ public class Cliente {
 
         @Override
         public String toString() {
-            return "Nome: " + nome + " \n" + " Endereco: " + endereco + " \n" + " Data: " + data + " \n" + "CPF: " + cpf + " Idade: " + idade + " Sexo: " + sexo;
+            return "Nome: " + nome + " \n" + "Endereco: " + endereco + " \n" + "Data: " + data + " \n" + "CPF: " + cpf + "\n" + "Idade: " + idade + "\n" + "Sexo: " + sexo;
         }
     }
 

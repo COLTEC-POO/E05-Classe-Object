@@ -17,8 +17,8 @@ public class Operacao {
         data = new Date();
     }
 
-    public void imprimirExtrato() {
-        System.out.println(" " + data + "  " + tipo + "  " + valor);
+    public String toString() {
+        return data + " " + tipo + " " + valor;
     }
 
     public static class OperacaoSaque extends Operacao {
@@ -27,9 +27,8 @@ public class Operacao {
             qtdOperacao++;
         }
 
-        @Override
-        public void imprimirExtrato() {
-            System.out.println(" " + data + " s" + " " + valor);
+        public String toString() {
+            return " " + data + " s " + " " + valor;
         }
     }
 
@@ -40,8 +39,8 @@ public class Operacao {
         }
 
         @Override
-        public void imprimirExtrato() {
-            System.out.println(" " + data + " d" + " " + valor);
+        public String toString() {
+            return " " + data + " d " + " " + valor;
         }
     }
 }
