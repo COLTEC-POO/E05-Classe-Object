@@ -18,6 +18,16 @@ public class Conta {
     // Numeros de Operacoes;
     private int numOp;
 
+    // Comparando Contas
+    public boolean equals(Object outro) {
+        if(outro instanceof Conta) {
+            Conta outraConta = (Conta) outro;
+            return this.numero.equals(outraConta.numero);
+        } else {
+            return false;
+        }
+    };
+
     // Construtor da Conta
     public Conta(int numero, String senha, double saldo, String dono, double limite, Cliente cliente) {
         this.numero = numero;
@@ -144,7 +154,7 @@ public class Conta {
 
     // Imprimir dados de conta
     public String toString() {
-        return "Número da Conta: " + numero + "\nSenha: " + senha + "\nSaldo: R$" + saldo + "\nDono: " + dono + "\nLimite: R$" + limite + "\n \n=== Dados como cliente === \n" + cliente.toString();
+        return "Número da Conta: " + this.numero + "\nSenha: " + this.senha + "\nSaldo: R$" + this.saldo + "\nDono: " + getDono() + "\nLimite: R$" + this.limite + "\n \n=== Dados como cliente === \n" + getCliente().toString();
     }
 
     public String getDono() { return dono; }

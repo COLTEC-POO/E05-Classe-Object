@@ -32,7 +32,7 @@ public class Cliente {
 
         @Override
         public String toString() {
-            return "Nome: " + nome + " \n" + "Endereco: " + endereco + " \n" + "Data: " + data + " \n" + "CPF: " + cpf + "\n" + "Idade: " + idade + "\n" + "Sexo: " + sexo;
+            return "Pessoa Fisica: \n" + "Nome: " + nome + " \n" + "Endereco: " + endereco + " \n" + "Data: " + data + " \n" + "CPF: " + cpf + "\n" + "Idade: " + idade + "\n" + "Sexo: " + sexo;
         }
     }
 
@@ -55,7 +55,7 @@ public class Cliente {
 
         @Override
         public String toString() {
-            return "Nome: " + nome + " \n" + " Endereco: " + endereco + " \n" + " Data: " + data + " \n" + "CNPJ: " + cnpj + " NumFuncionario: " + numFunc + " Setor: " + setor;
+            return "Pessoa Juridica: \n" + "Nome: " + nome + " \n" + " Endereco: " + endereco + " \n" + " Data: " + data + " \n" + "CNPJ: " + cnpj + " NumFuncionario: " + numFunc + " Setor: " + setor;
         }
     }
 }
