@@ -10,7 +10,7 @@ public class Conta {
     private double limite;
 
     // inicializando cliente;
-    final Cliente cliente;
+    private final Cliente cliente;
 
     // Inicializando o array de operacoes
     final Operacao[] operacoes;
@@ -58,11 +58,48 @@ public class Conta {
         }
     }
 
+    // Confere se o numero esta sendo usado
+    public static boolean numeroUsado(Conta[] contas, int numero) {
+        for(Conta conta : contas) {
+            if(conta != null && conta.numero == numero) {
+                System.out.println("Numero ja em uso, selecione outro!");
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Confere se o cpf esta sendo usado
+    // Confere se o cpf está sendo usado
+    public static boolean cpfUsado(Conta[] contas, String cpf) {
+        for (Conta conta : contas) {
+            if (conta != null && conta.getCliente() instanceof Cliente.PessoaFisica) {
+                Cliente.PessoaFisica pessoaFisica = (Cliente.PessoaFisica) conta.getCliente();
+                if (pessoaFisica.equals(new Cliente.PessoaFisica("", "", cpf, 0, ' '))) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    // Confere se o cnpj está sendo usado
+    public static boolean cnpjUsado(Conta[] contas, String cnpj) {
+        for (Conta conta : contas) {
+            if (conta != null && conta.getCliente() instanceof Cliente.PessoaJuridica) {
+                Cliente.PessoaJuridica pessoaJuridica = (Cliente.PessoaJuridica) conta.getCliente();
+                if (pessoaJuridica.equals(new Cliente.PessoaJuridica("", "", "", cnpj, 0))) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     // Metodo para registrar contas no array
     public static Conta[] regContas() {
         Scanner linhaDeComando = new Scanner(System.in);
 
-        // TIPO[] nomeArray = new TIPO[TAMANHO];
         int tamanho = 2;
 
         Conta[] contas = new Conta[tamanho];
@@ -74,10 +111,17 @@ public class Conta {
             System.out.println("Digite o endereco do dono:");
             String endereco = linhaDeComando.nextLine();
 
-            System.out.println("Digite o numero da conta:");
-            int numero = linhaDeComando.nextInt();
-            linhaDeComando.nextLine();
-            // Limpando o Buffer :/
+            int numero;
+            boolean numeroEmUso;
+//            Salvando numero somente se nao estiver presente no array
+//            Do-While para garantir que vai se repetir ate o usuario escrever outro numero
+            do {
+                System.out.println("Digite o numero da conta:");
+                numero = linhaDeComando.nextInt();
+
+                numeroEmUso = numeroUsado(contas, numero);
+            } while (numeroEmUso);
+
 
             System.out.println("Digite a senha da conta:");
             String senha = linhaDeComando.nextLine();
@@ -98,8 +142,18 @@ public class Conta {
             Cliente cliente;
 
             if(tipoCliente == 'P' || tipoCliente == 'p') {
-                System.out.println("Digite o CPF:");
-                String cpf = linhaDeComando.nextLine();
+
+                String cpf;
+                boolean cpfEmUso;
+//                Salvando cpf somente se nao estiver presente no array
+//                Do-While para garantir que vai se repetir ate o usuario escrever outro cpf
+                do {
+                    System.out.println("Digite o CPF:");
+                    cpf = linhaDeComando.nextLine();
+
+                    cpfEmUso = cpfUsado(contas, cpf);
+
+                } while (cpfEmUso);
 
                 System.out.println("Digite a idade:");
                 int idade = linhaDeComando.nextInt();
@@ -110,9 +164,17 @@ public class Conta {
 
                 cliente = new Cliente.PessoaFisica(dono, endereco, cpf, idade, sexo);
             } else if (tipoCliente == 'J' || tipoCliente == 'j') {
-                // Salvando os Dados como Pessoa Juridica
-                System.out.println("Digite o CNPJ:");
-                String cnpj = linhaDeComando.nextLine();
+                String cnpj;
+                boolean cnpjEmUso;
+
+//                Salvando cpf somente se nao estiver presente no array
+//                Do-While para garantir que vai se repetir ate o usuario escrever outro cpf
+                do {
+                    System.out.println("Digite o CNPJ:");
+                    cnpj = linhaDeComando.nextLine();
+
+                    cnpjEmUso = cnpjUsado(contas, cnpj);
+                } while (cnpjEmUso);
 
                 System.out.println("Digite a idade:");
                 int numFunc = linhaDeComando.nextInt();
@@ -130,7 +192,7 @@ public class Conta {
             contas[i] = new Conta(numero, senha, saldo, dono, limite, cliente);
         }
 
-        for (Conta contaAtual : contas) { System.out.println("Contas Cadastradas: " + contaAtual.getDono());
+        for (Conta contaAtual : contas) {System.out.print("Contas Cadastradas: " + contaAtual.getDono());
             System.out.println();}
         return contas;
     }
@@ -145,6 +207,18 @@ public class Conta {
     // Imprimir dados de conta
     public String toString() {
         return "Número da Conta: " + numero + "\nSenha: " + senha + "\nSaldo: R$" + saldo + "\nDono: " + dono + "\nLimite: R$" + limite + "\n \n=== Dados como cliente === \n" + cliente.toString();
+    }
+
+    // Comparando contas
+    public boolean equals(Conta outraConta) {
+
+        if(this.numero == outraConta.numero) {
+            System.out.println("Contas iguais");
+            return true;
+        } else {
+            System.out.println("Contas diferentes");
+            return false;
+        }
     }
 
     public String getDono() { return dono; }

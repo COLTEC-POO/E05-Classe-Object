@@ -30,9 +30,24 @@ public class Cliente {
             this.sexo = sexo;
         }
 
+//      Imprimir Pessoa Fisica
         @Override
         public String toString() {
             return "Nome: " + nome + " \n" + "Endereco: " + endereco + " \n" + "Data: " + data + " \n" + "CPF: " + cpf + "\n" + "Idade: " + idade + "\n" + "Sexo: " + sexo;
+        }
+
+        public boolean equals(Object outroCliente) {
+            if (outroCliente instanceof Cliente.PessoaFisica) {
+                Cliente.PessoaFisica PessoaX = (Cliente.PessoaFisica) outroCliente;
+
+                if(this.cpf.equals(PessoaX.cpf)) {
+                    System.out.println("CPF sao iguais.");
+                    return true;
+                } else {
+                    System.out.println("CPF nao sao iguais");
+                }
+            }
+            return false;
         }
     }
 
@@ -53,9 +68,24 @@ public class Cliente {
             this.setor = setor;
         }
 
+//      Imprimir Pessoa Juridica
         @Override
         public String toString() {
             return "Nome: " + nome + " \n" + " Endereco: " + endereco + " \n" + " Data: " + data + " \n" + "CNPJ: " + cnpj + " NumFuncionario: " + numFunc + " Setor: " + setor;
+        }
+
+        public boolean equals(Object outroCliente) {
+        if (outroCliente instanceof Cliente.PessoaJuridica) {
+            Cliente.PessoaJuridica PessoaX = (Cliente.PessoaJuridica) outroCliente;
+
+            if(this.cnpj.equals(PessoaX.cnpj)) {
+                System.out.println("CNPJ sao iguais.");
+                return true;
+            } else {
+                System.out.println("CNPJ nao sao iguais");
+            }
+        }
+            return false;
         }
     }
 }
