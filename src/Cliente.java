@@ -33,7 +33,7 @@ public class Cliente {
 //      Imprimir Pessoa Fisica
         @Override
         public String toString() {
-            return "Nome: " + nome + " \n" + "Endereco: " + endereco + " \n" + "Data: " + data + " \n" + "CPF: " + cpf + "\n" + "Idade: " + idade + "\n" + "Sexo: " + sexo;
+            return "Pessoa Fisica: \n" + "Nome: " + nome + " \n" + "Endereco: " + endereco + " \n" + "Data: " + data + " \n" + "CPF: " + cpf + "\n" + "Idade: " + idade + "\n" + "Sexo: " + sexo;
         }
 
         public boolean equals(Object outroCliente) {
@@ -71,7 +71,7 @@ public class Cliente {
 //      Imprimir Pessoa Juridica
         @Override
         public String toString() {
-            return "Nome: " + nome + " \n" + " Endereco: " + endereco + " \n" + " Data: " + data + " \n" + "CNPJ: " + cnpj + " NumFuncionario: " + numFunc + " Setor: " + setor;
+            return "Pessoa Juridica: \n" + "Nome: " + nome + " \n" + " Endereco: " + endereco + " \n" + " Data: " + data + " \n" + "CNPJ: " + cnpj + " NumFuncionario: " + numFunc + " Setor: " + setor;
         }
 
         public boolean equals(Object outroCliente) {

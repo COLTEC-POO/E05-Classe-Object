@@ -17,8 +17,10 @@ public class Operacao {
         data = new Date();
     }
 
+
+
     public String toString() {
-        return data + " " + tipo + " " + valor;
+        return this.data + " " + this.tipo + " " + this.valor;
     }
 
     public static class OperacaoSaque extends Operacao {
@@ -28,7 +30,7 @@ public class Operacao {
         }
 
         public String toString() {
-            return " " + data + " s " + " " + valor;
+            return " " + this.data + " s " + " " + this.valor;
         }
     }
 
@@ -40,9 +42,11 @@ public class Operacao {
 
         @Override
         public String toString() {
-            return " " + data + " d " + " " + valor;
+            return " " + this.data + " d " + " " + this.valor;
         }
     }
+
+
 }
 
 
