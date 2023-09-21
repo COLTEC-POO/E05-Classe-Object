@@ -20,13 +20,21 @@ public class Conta {
 
     // Comparando Contas
     public boolean equals(Object outro) {
-        if(outro instanceof Conta) {
+        if (outro instanceof Conta) {
             Conta outraConta = (Conta) outro;
-            return this.numero.equals(outraConta.numero);
+
+            System.out.println("As contas sao iguais");
+
+            return this.numero == outraConta.numero;
+
         } else {
+
+            System.out.println("As contas nao sao iguais");
+
             return false;
         }
     };
+
 
     // Construtor da Conta
     public Conta(int numero, String senha, double saldo, String dono, double limite, Cliente cliente) {
@@ -37,7 +45,7 @@ public class Conta {
 
         this.cliente = cliente;
 
-        setLimite(limite);
+        this.limite = limite;
 
         this.operacoes = new Operacao[1000];
 
@@ -86,6 +94,7 @@ public class Conta {
             if (conta != null && conta.getCliente() instanceof Cliente.PessoaFisica) {
                 Cliente.PessoaFisica pessoaFisica = (Cliente.PessoaFisica) conta.getCliente();
                 if (pessoaFisica.equals(new Cliente.PessoaFisica("", "", cpf, 0, ' '))) {
+                    System.out.println("CPF ja em uso, selecione outro!");
                     return true;
                 }
             }
@@ -99,6 +108,7 @@ public class Conta {
             if (conta != null && conta.getCliente() instanceof Cliente.PessoaJuridica) {
                 Cliente.PessoaJuridica pessoaJuridica = (Cliente.PessoaJuridica) conta.getCliente();
                 if (pessoaJuridica.equals(new Cliente.PessoaJuridica("", "", "", cnpj, 0))) {
+                    System.out.println("CNPJ ja em uso, selecione outro!");
                     return true;
                 }
             }
@@ -131,7 +141,7 @@ public class Conta {
 
                 numeroEmUso = numeroUsado(contas, numero);
             } while (numeroEmUso);
-
+            linhaDeComando.nextLine();
 
             System.out.println("Digite a senha da conta:");
             String senha = linhaDeComando.nextLine();
@@ -216,32 +226,12 @@ public class Conta {
 
     // Imprimir dados de conta
     public String toString() {
-        return "Número da Conta: " + this.numero + "\nSenha: " + this.senha + "\nSaldo: R$" + this.saldo + "\nDono: " + getDono() + "\nLimite: R$" + this.limite + "\n \n=== Dados como cliente === \n" + getCliente().toString();
-    }
-
-    // Comparando contas
-    public boolean equals(Conta outraConta) {
-
-        if(this.numero == outraConta.numero) {
-            System.out.println("Contas iguais");
-            return true;
-        } else {
-            System.out.println("Contas diferentes");
-            return false;
-        }
+        return "Número da Conta: " + this.numero + "\nSaldo: R$" + this.saldo + "\nDono: " + getDono() + "\nLimite: R$" + this.limite + "\n \n=== Dados como cliente === \n" + getCliente().toString();
     }
 
     public String getDono() { return dono; }
 
     public Cliente getCliente() {
         return cliente;
-    }
-
-    public void setLimite(double limite) {
-        if(limite >= 0) {
-            this.limite = limite;
-        } else {
-            this.limite = 0;
-        }
     }
 }
