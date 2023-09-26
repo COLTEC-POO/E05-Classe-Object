@@ -40,20 +40,11 @@ public class Operacao {
         this.valor = valor;
     }
 
-    // Método que imprime os dados do extrato no devido lugar
-
-    void imprimeExtrato() {
-        System.out.println(this.getData() + "\t" + this.getTipo() + "\t" + this.getValor()); ;
-    }
-
     // Método que sobrescreve a função toString da class Object e transforma tudo em uma string - Atividade 05
 
     @Override
     public String toString(){
-        String dadosOperacao = "Dados do depósito: " + "\n" + 
-                    "Data da operação: " + this.getData() + "\n" +
-                    "Tipo: " + this.getTipo() + "\n" +
-                    "Valor: " + this.getValor();
+        String dadosOperacao = this.getData() + "\t" + this.getTipo() + "\t" + this.getValor();
 
         return dadosOperacao;
     }

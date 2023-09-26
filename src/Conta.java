@@ -129,7 +129,7 @@ public class Conta {
         
         for (i = 0; i < this.qntOperacoes; i++) {
             Operacao x = this.operacoes[i];
-            x.imprimeExtrato();
+            System.out.println(x.toString()); // Redefinição do antigo método imprimeExtrato, que agora utiliza overrides de toString em vez de um método próprio - Atividade 05
         }
 
     }
